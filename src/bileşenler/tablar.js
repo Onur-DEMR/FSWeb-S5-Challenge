@@ -1,3 +1,4 @@
+import axios from "axios";
 import { javascript } from "webpack";
 
 const Tablar = (konu) => {
@@ -16,7 +17,7 @@ const Tablar = (konu) => {
   // </div>
   //
   const topicDiv = document.createElement("div");
-  topicDiv.className = "topics";
+  topicDiv.classList.add("topics");
   konu.array.forEach(element => {
     const tab = document.createElement("div");
     tab.classList.add("tab");
@@ -27,6 +28,10 @@ const Tablar = (konu) => {
 }
 
 const tabEkleyici = (secici) => {
+  const gelenVeri = document.querySelector(secici);
+  axios .get(`http://localhost:5001/api/konular`).then((response)=>{
+    gelenVeri.appendChild(Tablar(response.data.konular));
+  });
   // GÖREV 4
   // ---------------------
   // Tek argümanı olarak bir css seçici alan bu işlevi uygulayın.
