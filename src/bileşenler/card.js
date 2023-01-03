@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Card = (makale) => {
   // GÖREV 5
   // ---------------------
@@ -31,7 +33,7 @@ const Card = (makale) => {
 
   headDiv.textContent = makaleler.anabaslik;
   imgSrc.src = makaleler.yazarFoto;
-  yazarSpan.textContent = makaleler.yazarAdı + " tarafıdan";
+  yazarSpan.textContent = makaleler.yazarAdi + " tarafıdan";
 
   cardDiv.appendChild(headDiv);
   headDiv.appendChild(authorDiv);
@@ -43,9 +45,19 @@ const Card = (makale) => {
 const ekran = a.target.querySelector(".headline").textContent ;
 console.log(ekran);
   } )
+  return cardDiv;
 }
 
 const cardEkleyici = (secici) => {
+  const cardEkle = document.querySelector(secici);
+  axios .get("http://localhost:5001/api/makaleler") .then((response)=>{
+    for(let key in response.data.makaleler){
+      for(let i=0;i<response.data.makaleler[key].length;i++){
+        gelenVeri.appendChild(Card(response.data.makaleler[key][i]));
+      }
+    }
+  });
+  
   // GÖREV 6
   // ---------------------
   // Tek bağımsız değişkeni olarak bir css seçici alan bu fonksiyonu uygulayın.

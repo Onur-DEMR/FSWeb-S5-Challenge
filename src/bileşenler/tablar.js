@@ -1,5 +1,5 @@
 import axios from "axios";
-import { javascript } from "webpack";
+
 
 const Tablar = (konu) => {
   // GÖREV 3
@@ -28,10 +28,11 @@ const Tablar = (konu) => {
 }
 
 const tabEkleyici = (secici) => {
-  const gelenVeri = document.querySelector(secici);
-  axios .get(`http://localhost:5001/api/konular`).then((response)=>{
-    gelenVeri.appendChild(Tablar(response.data.konular));
+  const seciciEkle = document.querySelector(secici);
+  axios .get("http://localhost:5001/api/konular") .then((response)=>{
+    seciciEkle.appendChild(Tablar(response.data.konular));
   });
+  
   // GÖREV 4
   // ---------------------
   // Tek argümanı olarak bir css seçici alan bu işlevi uygulayın.
