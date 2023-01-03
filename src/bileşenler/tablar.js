@@ -1,3 +1,5 @@
+import { javascript } from "webpack";
+
 const Tablar = (konu) => {
   // GÖREV 3
   // ---------------------
@@ -13,6 +15,15 @@ const Tablar = (konu) => {
   //   <div class="tab">teknoloji</div>
   // </div>
   //
+  const topicDiv = document.createElement("div");
+  topicDiv.className = "topics";
+  konu.array.forEach(element => {
+    const tab = document.createElement("div");
+    tab.classList.add("tab");
+    tab.textContent = element;
+    topicDiv.appendChild(tab);
+  });
+  return topicDiv;
 }
 
 const tabEkleyici = (secici) => {
