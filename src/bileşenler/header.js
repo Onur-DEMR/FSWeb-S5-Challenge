@@ -28,6 +28,7 @@ return headerDiv;
 }
 
 const headerEkleyici = (secici) => {
+  document.querySelector(secici).appendChild(Header("ÖDEV", "03.01.2023", "Sıfırdan kodlamaya başlamak..."))
   // GÖREV 2
   // ---------------------
   // Tek argümanı olarak bir css seçici alan bu fonksiyonu uygulayın.
