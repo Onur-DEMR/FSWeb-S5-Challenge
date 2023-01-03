@@ -16,7 +16,33 @@ const Card = (makale) => {
   //     <span>{ yazarAdı } tarafından</span>
   //   </div>
   // </div>
-  //
+  
+  const cardDiv = document.createElement("div");
+  const headDiv = document.createElement("div");
+  const authorDiv= document.createElement("div");
+  const imgDiv= document.createElement("div");
+  const imgSrc = document.createElement("img");
+  const yazarSpan = document.createElement("span");
+
+  cardDiv.classList.add("card");
+  headDiv.classList.add("headline");
+  authorDiv.classList.add("author");
+  imgDiv.classList.add("img-container");
+
+  headDiv.textContent = makaleler.anabaslik;
+  imgSrc.src = makaleler.yazarFoto;
+  yazarSpan.textContent = makaleler.yazarAdı + " tarafıdan";
+
+  cardDiv.appendChild(headDiv);
+  headDiv.appendChild(authorDiv);
+  authorDiv.appendChild(imgSrc);
+  imgSrc.appendChild(imgDiv);
+  authorDiv.appendChild(yazarSpan);
+
+  cardDiv.addEventListener("click", (a)=>{
+const ekran = a.target.querySelector(".headline").textContent ;
+console.log(ekran);
+  } )
 }
 
 const cardEkleyici = (secici) => {
