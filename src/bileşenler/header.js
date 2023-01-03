@@ -24,6 +24,7 @@ spanTemp.textContent = yazi;
 headerDiv.appendChild(spanDate);
 headerDiv.appendChild(baslikh1);
 headerDiv.appendChild(spanTemp);
+return headerDiv;
 }
 
 const headerEkleyici = (secici) => {
